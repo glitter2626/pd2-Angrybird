@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="ground.png">image/GROUND.png</file>
+        <file alias="bird.png">image/Normal_Bird_1.png</file>
+        <file>image/angry-bird-black-icon (1).png</file>
+        <file>image/angry-bird-white-icon.png</file>
+        <file>image/angry-bird-yellow-icon.png</file>
+        <file>image/rope1.png</file>
+        <file>image/rope2.png</file>
+        <file>image/bun.png</file>
+        <file>image/bun2.png</file>
+        <file>image/greenbird.png</file>
+        <file>image/pig.png</file>
+        <file>image/block1.png</file>
+        <file>image/block2.png</file>
+        <file>image/block10.png</file>
+        <file>image/block11.png</file>
+        <file>image/dispear.png</file>
+        <file>image/enemy1.png</file>
+        <file>image/Angry Bird Game - Background.png</file>
+        <file>image/dispear2.png</file>
+        <file>image/enemy2.png</file>
+        <file>image/pig1.png</file>
+        <file>image/pig3.png</file>
+        <file>image/plate.png</file>
+        <file>image/air.png</file>
+    </qresource>
+</RCC>
