@@ -49,6 +49,10 @@ void MainWindow::showEvent(QShowEvent *)
     button->setGeometry(0,0,50,30);
     connect(button,SIGNAL(pressed()),this,SLOT(restart()));
     scene->addWidget(button);
+    exit = new QPushButton(QString("Exit"));
+    exit->setGeometry(930,0,30,30);
+    connect(exit,SIGNAL(pressed()),this,SLOT(QUITSLOT()));
+    scene->addWidget(exit);
 
     ui->graphicsView->setScene(scene);
 
@@ -411,6 +415,7 @@ void MainWindow::QUITSLOT()
 {
     // For debug
     std::cout << "Quit Game Signal receive !" << std::endl ;
+    this->close();
 }
 
 void MainWindow::restart()

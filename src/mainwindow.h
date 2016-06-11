@@ -92,6 +92,7 @@ private:
     QTimer timer;
     QLCDNumber *lcd;
     QPushButton *button;
+    QPushButton *exit;
 
     double x,y;
     b2MouseJoint *joint;
