@@ -8,6 +8,7 @@ QString *GROUND = new QString("ground");
 QString *BUN = new QString("bun");
 QString *PIG = new QString("pig");
 QString *BLOCK = new QString("block");
+QString *BALL = new QString("ball");
 
 b2Body *delbody = NULL;
 float imp = 0;

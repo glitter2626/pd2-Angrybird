@@ -103,6 +103,12 @@ void MainWindow::showEvent(QShowEvent *)
     items.push_back(new Land(3,14,2,0.5,QPixmap(":/image/plate.png").scaled(60,15),world,scene));
     items.push_back(new Land(1,14,2,0.5,QPixmap(":/image/plate.png").scaled(60,15),world,scene));
 
+    for(int j = 0; j < 5; j++){
+        ball.push_back(new Ball(15,12 + j*2,1,&timer,QPixmap(":/image/ball.png").scaled(60,60),world,scene));
+        ball.push_back(new Ball(28,12 + j*2,1,&timer,QPixmap(":/image/ball.png").scaled(60,60),world,scene));
+    }
+
+
     float h = 0.03f, w = 0.03f;
     for(int i = 0; i < ropelength; ++i)
         rope.push_back(new Rope(1.0f, 4.0f, w/2, h/2, &timer, QPixmap(":/image/rope1.png").scaled(width()/(320/3), height()/(60)),world,scene));
@@ -151,14 +157,14 @@ void MainWindow::showEvent(QShowEvent *)
     enemy.at(1)->gethealth() += 50;
 
     //create block
-    block.push_back(new Block(18.0f,4.0f,1,1,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
-    block.push_back(new Block(18.0f,6.0f,1,1,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
-    block.push_back(new Block(18.0f,8.0f,1,1,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
-    block.push_back(new Block(20.0f,8.0f,1,1,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
-    block.push_back(new Block(22.0f,8.0f,1,1,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
-    block.push_back(new Block(24.0f,8.0f,1,1,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
-    block.push_back(new Block(24.0f,6.0f,1,1,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
-    block.push_back(new Block(24.0f,4.0f,1,1,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
+    block.push_back(new Block(18.0f,4.0f,2,2,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
+    block.push_back(new Block(18.0f,6.0f,2,2,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
+    block.push_back(new Block(18.0f,8.0f,2,2,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
+    block.push_back(new Block(20.0f,8.0f,2,2,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
+    block.push_back(new Block(22.0f,8.0f,2,2,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
+    block.push_back(new Block(24.0f,8.0f,2,2,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
+    block.push_back(new Block(24.0f,6.0f,2,2,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
+    block.push_back(new Block(24.0f,4.0f,2,2,&timer,QPixmap(":/image/block1.png").scaled(60,60),world,scene));
 
     //block.at(3)->setpixmap(QPixmap(":/image/dispear.png").scaled(height()/9, height()/9),1,1);
 
@@ -342,10 +348,10 @@ void MainWindow::tick()
             feature = NULL;
 
             if(block.at(i)->gethealth() < 200 && block.at(i)->gethealth() > 0)
-                block.at(i)->setpixmap(QPixmap(":/image/block11.png").scaled(60,60),1,1);
+                block.at(i)->setpixmap(QPixmap(":/image/block11.png").scaled(60,60),2,2);
 
             if(block.at(i)->gethealth() <= 0){
-                block.at(i)->setpixmap(QPixmap(":/image/dispear.png").scaled(60,60),1,1);
+                block.at(i)->setpixmap(QPixmap(":/image/dispear.png").scaled(60,60),2,2);
                 block.at(i)->disappear();
             }
         }
@@ -434,11 +440,11 @@ void MainWindow::restart()
     enemy.at(0)->getBody().SetLinearVelocity(b2Vec2(0,0));
     enemy.at(0)->getBody().SetTransform(b2Vec2(19,5),0);
     enemy.at(0)->setpixmap(QPixmap(":/image/enemy1.png").scaled(60,60),1);
-    enemy.at(0)->gethealth() = 75;
+    enemy.at(0)->gethealth() = 325;
     enemy.at(1)->getBody().SetLinearVelocity(b2Vec2(0,0));
     enemy.at(1)->getBody().SetTransform(b2Vec2(21.5,7),0);
     enemy.at(1)->setpixmap(QPixmap(":/image/pig.png").scaled(60,60),1);
-    enemy.at(1)->gethealth() = 125;
+    enemy.at(1)->gethealth() = 375;
 
     block.at(0)->resetdisappear();
     block.at(1)->resetdisappear();
@@ -458,25 +464,26 @@ void MainWindow::restart()
     block.at(6)->getBody().SetTransform(b2Vec2(24,6),0);
     block.at(7)->getBody().SetTransform(b2Vec2(24,4),0);
 
-    block.at(0)->gethealth() = 100;
-    block.at(1)->gethealth() = 100;
-    block.at(2)->gethealth() = 100;
-    block.at(3)->gethealth() = 100;
-    block.at(4)->gethealth() = 100;
-    block.at(5)->gethealth() = 100;
-    block.at(6)->gethealth() = 100;
-    block.at(7)->gethealth() = 100;
+    block.at(0)->gethealth() = 400;
+    block.at(1)->gethealth() = 400;
+    block.at(2)->gethealth() = 400;
+    block.at(3)->gethealth() = 400;
+    block.at(4)->gethealth() = 400;
+    block.at(5)->gethealth() = 400;
+    block.at(6)->gethealth() = 400;
+    block.at(7)->gethealth() = 400;
 
-    block.at(0)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),1,1);
-    block.at(1)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),1,1);
-    block.at(2)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),1,1);
-    block.at(3)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),1,1);
-    block.at(4)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),1,1);
-    block.at(5)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),1,1);
-    block.at(6)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),1,1);
-    block.at(7)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),1,1);
+    block.at(0)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),2,2);
+    block.at(1)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),2,2);
+    block.at(2)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),2,2);
+    block.at(3)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),2,2);
+    block.at(4)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),2,2);
+    block.at(5)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),2,2);
+    block.at(6)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),2,2);
+    block.at(7)->setpixmap(QPixmap(":/image/block1.png").scaled(60,60),2,2);
 
     temp->setpixmap(QPixmap(":/image/angry-bird-white-icon.png").scaled(60,60),1);
+    temp->getBody().SetBullet(true);
     temp->getBody().GetFixtureList()->SetDensity(10.0f);
     temp->getBody().ResetMassData();
 
@@ -497,6 +504,14 @@ void MainWindow::restart()
     itemList.at(1)->resetcollide();
     itemList.at(2)->resetcollide();
     itemList.at(3)->resetcollide();
+
+    for(int l = 0; l < 5; l++){
+        ball.at(l)->getBody().SetTransform(b2Vec2(15, 12 + 2*l),0);
+        ball.at(l)->getBody().SetLinearVelocity(b2Vec2(0,0));
+        ball.at(l+5)->getBody().SetTransform(b2Vec2(28, 12 + 2*l),0);
+        ball.at(l+5)->getBody().SetLinearVelocity(b2Vec2(0,0));
+    }
+
 
     lcd->display(0);
 

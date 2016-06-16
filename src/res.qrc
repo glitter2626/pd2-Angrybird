@@ -24,5 +24,6 @@
         <file>image/pig3.png</file>
         <file>image/plate.png</file>
         <file>image/air.png</file>
+        <file>image/ball.png</file>
     </qresource>
 </RCC>

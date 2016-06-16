@@ -12,6 +12,7 @@ INPUT(
 ./debug/yellowbird.o
 ./debug/enemy.o
 ./debug/block.o
+./debug/ball.o
 ./debug/qrc_res.o
 ./debug/moc_mainwindow.o
 ./debug/moc_gameitem.o

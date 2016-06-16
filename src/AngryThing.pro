@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     greenbird.cpp \
     yellowbird.cpp \
     enemy.cpp \
-    block.cpp
+    block.cpp \
+    ball.cpp
 
 HEADERS  += mainwindow.h \
     Box2D/Collision/Shapes/b2ChainShape.h \
@@ -84,7 +85,8 @@ HEADERS  += mainwindow.h \
     greenbird.h \
     yellowbird.h \
     enemy.h \
-    block.h
+    block.h \
+    ball.h
 
 FORMS    += mainwindow.ui
 

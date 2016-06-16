@@ -22,6 +22,7 @@
 #include <whitebird.h>
 #include <enemy.h>
 #include <block.h>
+#include <ball.h>
 
 namespace Ui {
 class MainWindow;
@@ -82,6 +83,7 @@ private:
     QList<Block *> block;
     QList<Enemy *> enemy;
     QList<Rope *> rope;
+    QList<Ball *> ball;
     Whitebird *temp;
     Blackbird *tempb;
     QList<b2RevoluteJoint*> revolutejoint;

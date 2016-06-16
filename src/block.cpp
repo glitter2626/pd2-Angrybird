@@ -8,6 +8,7 @@ Block::Block(float x, float y, float w, float h, QTimer *timer, QPixmap pixmap, 
     // Set pixmap
     g_pixmap.setPixmap(pixmap);
     //g_pixmap.setTransformOriginPoint(g_pixmap.boundingRect().width()/2,g_pixmap.boundingRect().height()/2);
+    g_pixmap.setTransformOriginPoint(g_pixmap.boundingRect().width()/2,g_pixmap.boundingRect().height()/2);
     std::cout<<g_pixmap.boundingRect().width()<<" "<<g_pixmap.boundingRect().height();
     g_size = QSize(w,h);
 
@@ -21,7 +22,7 @@ Block::Block(float x, float y, float w, float h, QTimer *timer, QPixmap pixmap, 
 
 
     b2PolygonShape bodyBox;
-    bodyBox.SetAsBox(w,h);
+    bodyBox.SetAsBox(w/2,h/2);
 
     b2FixtureDef fixturedef;
     fixturedef.shape = &bodyBox;

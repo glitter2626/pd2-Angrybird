@@ -12,6 +12,7 @@ INPUT(
 ./release/yellowbird.o
 ./release/enemy.o
 ./release/block.o
+./release/ball.o
 ./release/qrc_res.o
 ./release/moc_mainwindow.o
 ./release/moc_gameitem.o
